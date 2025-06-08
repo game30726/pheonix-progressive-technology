@@ -1,0 +1,70 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "All Procucts",
+      "url": "/pricing"
+    },
+    {
+      "name": "Service",
+      "url": "#"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    },
+    {
+      "name": "My Customer",
+      "url": "/faq"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Company",
+      "menu": [
+        {
+          "text": "Contact",
+          "url": "/contact"
+        },
+        {
+          "text": "Our Brand",
+          "url": "#"
+        },
+        {
+          "text": "My Customer",
+          "url": "#"
+        }
+
+      ]
+    },
+    {
+      "name": "Product",
+      "menu": [
+        {
+          "text": "Solution",
+          "url": "#"
+        },
+        {
+          "text": "All Products",
+          "url": "/pricing"
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "menu": [
+        {
+          "text": "Service",
+          "url": "/faq"
+        },
+        {
+          "text": "Contact",
+          "url": "/contact"
+        }
+      ]
+    }
+  ]
+}
