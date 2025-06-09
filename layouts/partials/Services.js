@@ -1,14 +1,25 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 
+// ฟังก์ชันสำหรับสุ่มรูปภาพ
+const getRandomImages = (images, count = 4) => {
+  if (images.length <= count) return images;
+  
+  const shuffled = [...images].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
 const Services = ({ services }) => {
   return services.map((service, index) => {
     const isOdd = index % 2 > 0;
+    
+    // สุ่มรูปภาพ 4 รูป
+    const randomImages = getRandomImages(service.images, 10);
+    
     return (
       <section
         key={`service-${index}`}
@@ -21,23 +32,22 @@ const Services = ({ services }) => {
               <Swiper
                 modules={[Autoplay, Pagination]}
                 pagination={
-                  service.images.length > 1 ? { clickable: true } : false
+                  randomImages.length > 1 ? { clickable: true } : false
                 }
                 autoplay={{
                   delay: 5000,
                   disableOnInteraction: false,
                 }}
-                init={service?.images > 1 ? false : true}
+                init={randomImages.length > 1 ? false : true}
               >
                 {/* Slides */}
-                {service?.images.map((slide, index) => (
-                  <SwiperSlide key={index}>
+                {randomImages.map((slide, slideIndex) => (
+                  <SwiperSlide key={slideIndex}>
                     <Image src={slide} alt="" width={600} height={500} />
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-
             {/* Content */}
             <div
               className={`service-content mt-5 md:mt-0 ${

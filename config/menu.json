@@ -2,23 +2,59 @@
   "main": [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/",
+      "hasChildren": false
     },
     {
-      "name": "All Procucts",
-      "url": "/pricing"
+      "name": "All Products",
+      "hasChildren": true,
+      "children": [
+        {
+          "text": "All Products",
+          "url": "/pricing"
+        },
+        {
+          "text": "LOWARA Products",
+          "url": "/products/lowara"
+        },
+        {
+          "text": "PHOENIX Products",
+          "url": "/products/phoenix"
+        },
+        {
+          "text": "ORLANDO Products",
+          "url": "/products/orlando"
+        },
+        {
+          "text": "Micropump Products",
+          "url": "/products/micropump"
+        }
+      ]
     },
     {
       "name": "Service",
-      "url": "#"
+      "url": "/service"
+    },
+    {
+      "name": "Our Brands",
+      "url": "/ourbrand",
+      "hasChildren": false
+    },
+    {
+      "name": "About",
+      "url": "/about",
+      "hasChildren": false
     },
     {
       "name": "Contact",
-      "url": "/contact"
+      "url": "/contact",
+      "hasChildren": false
     },
+
     {
       "name": "My Customer",
-      "url": "/faq"
+      "url": "/customer",
+      "hasChildren": false
     }
   ],
   "footer": [
@@ -26,39 +62,49 @@
       "name": "Company",
       "menu": [
         {
-          "text": "Contact",
-          "url": "/contact"
-        },
-        {
-          "text": "Our Brand",
-          "url": "#"
+          "text": "About",
+          "url": "/about"
+        },        {
+          "text": "Our Brands",
+          "url": "/brand"
         },
         {
           "text": "My Customer",
-          "url": "#"
+          "url": "/customers"
         }
-
       ]
     },
     {
-      "name": "Product",
+      "name": "Products",
       "menu": [
-        {
-          "text": "Solution",
-          "url": "#"
-        },
         {
           "text": "All Products",
           "url": "/pricing"
+        },
+        {
+          "text": "LOWARA Products",
+          "url": "/products/lowara"
+        },
+        {
+          "text": "PHOENIX Products",
+          "url": "/products/phoenix"
+        },
+        {
+          "text": "ORLANDO Products",
+          "url": "/products/orlando"
+        },
+        {
+          "text": "Micropump Products",
+          "url": "/products/micropump"
         }
       ]
     },
     {
-      "name": "Support",
+      "name": "Service",
       "menu": [
         {
           "text": "Service",
-          "url": "/faq"
+          "url": "/service"
         },
         {
           "text": "Contact",

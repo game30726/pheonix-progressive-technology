@@ -1,5 +1,4 @@
 import config from "@config/config.json";
-import Cta from "@layouts/components/Cta";
 import SeoMeta from "@layouts/SeoMeta";
 
 import HomeBanner from "@layouts/partials/HomeBanner";
@@ -10,7 +9,7 @@ import { getListPage } from "../lib/contentParser";
 const Home = async () => {
   const homePage = await getListPage("content/_index.md");
   const { frontmatter } = homePage;
-  const { banner, services, workflow, call_to_action } = frontmatter;
+  const { banner, services, workflow } = frontmatter;
   const { title } = config.site;
 
   return (
@@ -26,8 +25,6 @@ const Home = async () => {
       {/* workflow */}
       <Workflow workflow={workflow} />
 
-      {/* Cta */}
-      <Cta cta={call_to_action} />
     </>
   );
 };
