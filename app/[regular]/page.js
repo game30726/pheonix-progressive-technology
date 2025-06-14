@@ -10,19 +10,25 @@ import Ourbrands from "@layouts/ourbrands";
 
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
-// for all regular pages
-const RegularPages = async ({ params }) => {
+export default async function RegularPages({ params }) {
+  params = await params;
   const { regular } = params;
-  const regularPageData = await getRegularPage(regular);
-  const { title, meta_title, description, image, noindex, canonical, layout } =
-    regularPageData.frontmatter;
-  const { content } = regularPageData;
+
+  let regularPageData;
+  try {
+    regularPageData = await getRegularPage(regular);
+  } catch {
+    return <NotFound data={{ frontmatter: { title: "Not Found" }, content: "" }} />;
+  }
+
+  const { frontmatter, content } = regularPageData;
+  const { title, meta_title, description, image, noindex, canonical, layout } = frontmatter;
 
   return (
     <>
       <SeoMeta
         title={title}
-        description={description ? description : content.slice(0, 120)}
+        description={description || content.slice(0, 120)}
         meta_title={meta_title}
         image={image}
         noindex={noindex}
@@ -47,16 +53,9 @@ const RegularPages = async ({ params }) => {
       )}
     </>
   );
-};
-export default RegularPages;
+}
 
-// for regular page routes
-export const generateStaticParams = async () => {
-  const allslugs = await getSinglePage("content");
-  const slugs = allslugs.map((item) => item.slug);
-  const paths = slugs.map((slug) => ({
-    regular: slug,
-  }));
-
-  return paths;
-};
+export async function generateStaticParams() {
+  const allSlugs = await getSinglePage("content");
+  return allSlugs.map(item => ({ regular: item.slug }));
+}
