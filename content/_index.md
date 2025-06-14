@@ -32,7 +32,7 @@ Our operations are based in Lad Krabang, featuring a fully equipped workshop and
     button:
       enable: true
       label: My Services
-      link: /service
+      link: /services
 
   - title: "Trusted by Leading Organizations"
     content: "Over the years, we have earned the trust of more than 500 clients across Thailand and Southeast Asia. From commercial buildings to complex industrial facilities, our pumping solutions have supported operations in sectors such as power generation, petrochemicals, mining, agriculture, and water treatment.

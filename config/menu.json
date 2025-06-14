@@ -32,12 +32,12 @@
       ]
     },
     {
-      "name": "Service",
-      "url": "/service"
+      "name": "Services",
+      "url": "/services"
     },
     {
       "name": "Our Brands",
-      "url": "/ourbrand",
+      "url": "/ourbrands",
       "hasChildren": false
     },
     {
@@ -66,7 +66,7 @@
           "url": "/about"
         },        {
           "text": "Our Brands",
-          "url": "/brand"
+          "url": "/ourbrands"
         },
         {
           "text": "My Customer",
@@ -103,8 +103,8 @@
       "name": "Service",
       "menu": [
         {
-          "text": "Service",
-          "url": "/service"
+          "text": "Services",
+          "url": "/services"
         },
         {
           "text": "Contact",

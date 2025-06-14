@@ -5,6 +5,9 @@ import Customer from "@layouts/customer";
 import Pricing from "@layouts/Pricing";
 import SeoMeta from "@layouts/SeoMeta";
 import About from "@layouts/about";
+import Services from "@layouts/services";
+import Ourbrands from "@layouts/ourbrands";
+
 import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
@@ -35,6 +38,10 @@ const RegularPages = async ({ params }) => {
         <Customer data={regularPageData} />
       ) : layout === "about" ? (
         <About data={regularPageData} />
+      ) : layout === "services" ? (
+        <Services data={regularPageData} />
+      ) : layout === "ourbrands" ? (
+        <Ourbrands data={regularPageData} />
       ) : (
         <Default data={regularPageData} />
       )}
