@@ -2,7 +2,7 @@ import NotFound from "@layouts/404";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
 import Customer from "@layouts/customer";
-import Pricing from "@layouts/Pricing";
+import Product from "@layouts/product";
 import SeoMeta from "@layouts/SeoMeta";
 import About from "@layouts/about";
 import Services from "@layouts/services";
@@ -38,8 +38,8 @@ export default async function RegularPages({ params }) {
         <NotFound data={regularPageData} />
       ) : layout === "contact" ? (
         <Contact data={regularPageData} />
-      ) : layout === "pricing" ? (
-        <Pricing data={regularPageData} />
+      ) : layout === "product" ? (
+        <Product data={regularPageData} />
       ) : layout === "customer" ? (
         <Customer data={regularPageData} />
       ) : layout === "about" ? (

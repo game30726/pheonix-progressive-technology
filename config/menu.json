@@ -11,23 +11,23 @@
       "children": [
         {
           "text": "All Products",
-          "url": "/pricing"
-        },
-        {
-          "text": "LOWARA Products",
-          "url": "#"
-        },
-        {
-          "text": "PHOENIX Products",
-          "url": "#"
-        },
-        {
-          "text": "ORLANDO Products",
-          "url": "#"
+          "url": "/products"
         },
         {
           "text": "Micropump Products",
-          "url": "#"
+          "url": "/products/micropump"
+        },
+        {
+          "text": "Lowara Products",
+          "url": "/products/lowara"
+        },
+        {
+          "text": "Orlando Products",
+          "url": "/products/orlando"
+        },
+        {
+          "text": "Phoenix Products",
+          "url": "/products/phoenix"
         }
       ]
     },
@@ -79,23 +79,23 @@
       "menu": [
         {
           "text": "All Products",
-          "url": "/pricing"
+          "url": "/products"
         },
         {
           "text": "LOWARA Products",
-          "url": "#"
+          "url": "/products/lowara"
         },
         {
           "text": "PHOENIX Products",
-          "url": "#"
+          "url": "/products/phoenix"
         },
         {
           "text": "ORLANDO Products",
-          "url": "#"
+          "url": "/products/orlando"
         },
         {
           "text": "Micropump Products",
-          "url": "#"
+          "url": "/products/micropump"
         }
       ]
     },
