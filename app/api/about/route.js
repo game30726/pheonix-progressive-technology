@@ -20,7 +20,7 @@ export async function GET() {
     // Return fallback data if file doesn't exist
     return NextResponse.json({
       about: {
-        title: "Phonix Progressive Technology",
+        title: "Phoenix Progressive Technology",
         description: [
           "Established in 2022 with a paid-up capital of THB6m.",
           "The company started by taking over the pump division business of Jebsen & Jessen Technology Thailand.",

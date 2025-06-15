@@ -20,7 +20,7 @@ export default function AboutPage() {
         } else {
           // ใช้ข้อมูล fallback หากไม่สามารถอ่านไฟล์ได้
           setAboutData({
-            title: "Phonix Progressive Technology",
+            title: "Phoenix Progressive Technology",
             description: [
               "Established in 2022 with a paid-up capital of THB6m.",
               "The company started by taking over the pump division business of Jebsen & Jessen Technology Thailand.",
@@ -37,7 +37,7 @@ export default function AboutPage() {
         console.error('Error loading about data:', error);
         // ใช้ข้อมูล fallback
         setAboutData({
-          title: "Phonix Progressive Technology",
+          title: "Phoenix Progressive Technology",
           description: [
             "Established in 2022 with a paid-up capital of THB6m.",
             "The company started by taking over the pump division business of Jebsen & Jessen Technology Thailand.",
@@ -148,7 +148,7 @@ export default function AboutPage() {
                 <div className="relative bg-white backdrop-blur-md p-4 rounded-3xl shadow-2xl border border-gray-200 transform hover:scale-105 transition-all duration-500">
                   <Image
                     src={aboutData.image}
-                    alt="About Phonix Progressive Technology"
+                    alt="About Phoenix Progressive Technology"
                     width={600}
                     height={400}
                     className="w-full h-auto rounded-2xl object-cover"
