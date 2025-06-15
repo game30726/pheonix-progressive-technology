@@ -70,7 +70,7 @@
         },
         {
           "text": "My Customer",
-          "url": "/customers"
+          "url": "/customer"
         }
       ]
     },
@@ -84,10 +84,6 @@
         {
           "text": "LOWARA Products",
           "url": "/products/lowara"
-        },
-        {
-          "text": "PHOENIX Products",
-          "url": "/products/phoenix"
         },
         {
           "text": "ORLANDO Products",
