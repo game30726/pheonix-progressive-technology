@@ -13,7 +13,7 @@ banner:
 # services
 services:
   - title: "History and background company."
-    content: "Founded in 2022 with a paid-up capital of THB 6 million, the company began by acquiring the pump division of Jebsen & Jessen Technology Thailand. With 12 employees bringing over 30 years of combined experience in pumps and motors, we offer a wide range of fluid pumping solutions for commercial, residential, and industrial sectors such as power plants, mining, petrochemical, and agriculture.
+    content: "Founded in 2022, the company began by acquiring the pump division of Jebsen & Jessen Technology Thailand. With 12 employees bringing over 30 years of combined experience in pumps and motors, we offer a wide range of fluid pumping solutions for commercial, residential, and industrial sectors such as power plants, mining, petrochemical, and agriculture.
 
 Our operations are based in Lad Krabang, featuring a fully equipped workshop and warehouse. Representing leading pump and motor brands in Thailand and Southeast Asia, we serve over 500 customers through a nationwide dealer network."
     images:
