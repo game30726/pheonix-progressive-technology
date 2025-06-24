@@ -10,6 +10,6 @@ info:
   
   contacts: 
     - "phone: +6662 646 4219"
-    - "Mail: chongwenyu@pptechthai.com"
+    - "Mail: chongwen.yu@pptechthai.com"
     - "Address: 7/2 PATTANACHONABOT 4 ROAD, KHLONG SONG TON NOON, LAT KRABANG, BANGKOK 10520"
 ---

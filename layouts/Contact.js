@@ -211,7 +211,7 @@ const Contact = ({ data }) => {
                   <span className="text-2xl text-white">📞</span>
                 </div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2">Call Us</h4>
-                <p className="text-gray-600">+66 80 256 1452</p>
+                <p className="text-gray-600">+6662 646 4219</p>
               </div>
             </div>
 

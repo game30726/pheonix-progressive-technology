@@ -1,5 +1,5 @@
 ---
-title: "Micropump Products"
+title: "Micropump"
 layout: "product"
 draft: false
 products:

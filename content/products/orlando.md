@@ -1,5 +1,5 @@
 ---
-title: "Orlando Products"
+title: "Orlando"
 layout: "product"
 draft: false
 products:

@@ -1,5 +1,5 @@
 ---
-title: "Lowara Procusts"
+title: "Lowara"
 layout: "product"
 draft: false
 products:
