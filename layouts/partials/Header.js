@@ -3,7 +3,7 @@ import Logo from "@components/Logo";
 import menu from "@config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import config from "../../config/config.json";
 
 const Header = () => {
@@ -13,12 +13,14 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState({});
   const [scrolled, setScrolled] = useState(false);
   const { logo } = config.site;
+  const dropdownTimeouts = useRef({});
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -27,6 +29,11 @@ const Header = () => {
   useEffect(() => {
     setNavOpen(false);
     setDropdownOpen({});
+    // Clear any pending timeouts
+    Object.values(dropdownTimeouts.current).forEach(timeout => {
+      clearTimeout(timeout);
+    });
+    dropdownTimeouts.current = {};
   }, [pathname]);
 
   // Prevent body scroll when mobile menu is open
@@ -37,7 +44,6 @@ const Header = () => {
       document.body.style.overflow = 'unset';
     }
     
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -55,6 +61,31 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [navOpen]);
 
+  // Improved dropdown handlers with timeout for better UX
+  const handleDropdownEnter = (index) => {
+    // Clear any existing timeout for this dropdown
+    if (dropdownTimeouts.current[index]) {
+      clearTimeout(dropdownTimeouts.current[index]);
+      delete dropdownTimeouts.current[index];
+    }
+    
+    setDropdownOpen((prev) => ({
+      ...prev,
+      [index]: true,
+    }));
+  };
+
+  const handleDropdownLeave = (index) => {
+    // Set a timeout before closing to prevent flickering
+    dropdownTimeouts.current[index] = setTimeout(() => {
+      setDropdownOpen((prev) => ({
+        ...prev,
+        [index]: false,
+      }));
+      delete dropdownTimeouts.current[index];
+    }, 150);
+  };
+
   const toggleDropdown = (index) => {
     setDropdownOpen((prev) => ({
       ...prev,
@@ -64,12 +95,26 @@ const Header = () => {
 
   const closeAllDropdowns = () => {
     setDropdownOpen({});
+    // Clear all timeouts
+    Object.values(dropdownTimeouts.current).forEach(timeout => {
+      clearTimeout(timeout);
+    });
+    dropdownTimeouts.current = {};
   };
 
   const closeNavigation = () => {
     setNavOpen(false);
     closeAllDropdowns();
   };
+
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      Object.values(dropdownTimeouts.current).forEach(timeout => {
+        clearTimeout(timeout);
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -108,12 +153,14 @@ const Header = () => {
                             ? 'text-orange-600 bg-orange-50'
                             : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
                         }`}
-                        onMouseEnter={() => toggleDropdown(i)}
-                        onMouseLeave={() => toggleDropdown(i)}
+                        onMouseEnter={() => handleDropdownEnter(i)}
+                        onMouseLeave={() => handleDropdownLeave(i)}
                       >
                         {menuItem.name}
                         <svg
-                          className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180"
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                            dropdownOpen[i] ? 'rotate-180' : ''
+                          }`}
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -132,8 +179,8 @@ const Header = () => {
                             ? 'opacity-100 visible translate-y-0' 
                             : 'opacity-0 invisible -translate-y-2'
                         }`}
-                        onMouseEnter={() => toggleDropdown(i)}
-                        onMouseLeave={() => toggleDropdown(i)}
+                        onMouseEnter={() => handleDropdownEnter(i)}
+                        onMouseLeave={() => handleDropdownLeave(i)}
                       >
                         <div className="py-2">
                           {menuItem.children?.map((child, j) => (
@@ -199,13 +246,9 @@ const Header = () => {
             className={`md:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white transform transition-transform duration-300 ease-in-out z-50 shadow-2xl border-l border-gray-200 ${
               navOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
-            style={{ 
-              backgroundColor: '#ffffff',
-              minHeight: '100vh'
-            }}
           >
             {/* Mobile menu header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 h-16 bg-white relative z-10">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 h-16 bg-white">
               <h2 className="text-lg font-semibold text-gray-900">Menu</h2>
               <button
                 onClick={closeNavigation}
@@ -219,19 +262,17 @@ const Header = () => {
             </div>
 
             {/* Mobile menu content */}
-            <div className="p-4 h-full overflow-y-auto pb-20 bg-white relative z-10">
-              
-              
+            <div className="p-4 h-full overflow-y-auto pb-20 bg-white">
               <nav className="space-y-2">
                 {main && main.length > 0 ? main.map((menuItem, i) => (
-                  <div key={`mobile-menu-${i}`} className="bg-gray-50 p-2 rounded">
+                  <div key={`mobile-menu-${i}`} className="border border-gray-200 rounded-lg overflow-hidden">
                     {menuItem.hasChildren ? (
                       <>
                         <button
-                          className={`w-full flex items-center justify-between px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 bg-blue-100 ${
+                          className={`w-full flex items-center justify-between px-4 py-3 text-base font-medium transition-colors duration-200 ${
                             menuItem.children?.some(child => pathname === child.url)
                               ? 'text-orange-600 bg-orange-50'
-                              : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
+                              : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
                           }`}
                           onClick={() => toggleDropdown(i)}
                         >
@@ -253,18 +294,18 @@ const Header = () => {
 
                         {/* Mobile Submenu */}
                         <div
-                          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          className={`overflow-hidden transition-all duration-300 ease-in-out bg-gray-50 ${
                             dropdownOpen[i] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                           }`}
                         >
-                          <div className="ml-4 space-y-1 pt-2 pb-2">
+                          <div className="space-y-1 p-2">
                             {menuItem.children?.map((child, j) => (
                               <Link
                                 key={`mobile-child-${j}`}
                                 href={child.url}
                                 className={`block px-4 py-3 text-sm rounded-lg transition-colors duration-200 ${
                                   pathname === child.url
-                                    ? 'text-orange-600 bg-orange-50 border-l-2 border-orange-600'
+                                    ? 'text-orange-600 bg-orange-100 border-l-4 border-orange-600'
                                     : 'text-gray-600 hover:text-orange-600 hover:bg-orange-50'
                                 }`}
                                 onClick={closeNavigation}
@@ -278,10 +319,10 @@ const Header = () => {
                     ) : (
                       <Link
                         href={menuItem.url || '#'}
-                        className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 bg-green-100 ${
+                        className={`block px-4 py-3 text-base font-medium transition-colors duration-200 ${
                           pathname === (menuItem.url || '#')
-                            ? 'text-orange-600 bg-orange-50 border-l-2 border-orange-600'
-                            : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
+                            ? 'text-orange-600 bg-orange-50 border-l-4 border-orange-600'
+                            : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
                         }`}
                         onClick={closeNavigation}
                       >
@@ -290,8 +331,8 @@ const Header = () => {
                     )}
                   </div>
                 )) : (
-                  <div className="text-center text-gray-500 py-8 bg-yellow-100 rounded-lg">
-                    <p className="text-red-600 font-bold">not found menu.json</p>
+                  <div className="text-center text-gray-500 py-8 bg-gray-50 rounded-lg border border-gray-200">
+                    <p className="text-gray-600">Menu not found</p>
                   </div>
                 )}
               </nav>
