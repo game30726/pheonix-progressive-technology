@@ -105,7 +105,7 @@ Submersible Sewage Pumps"
       name: "E Series"
       category: "Pumps"
       owner: "Phoenix"
-      image: "/images/phoenix/WQ.png"
+      image: "/images/phoenix/E Series.jpg"
       description: "E series is suitable for handling Clear water and similar liquid.
 Mainly used in the following application: Water Supply, Pressure Boosting,
 Air Condition, Refrigeration, Heating and Ventilating, Irrigation
@@ -121,7 +121,7 @@ For higher rating temperature application, please contact local distributor."
       name: "CN, CM Series"
       category: "Pumps"
       owner: "Phoenix"
-      image: "/images/phoenix/WQ.png"
+      image: "/images/phoenix/CN Series.jpg"
       description: |
         CN Three 380V 50Hz
         CM Single phase 220V 50Hz
