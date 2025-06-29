@@ -243,7 +243,7 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white transform transition-transform duration-300 ease-in-out z-50 shadow-2xl border-l border-gray-200 ${
+            className={`md:hidden fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-white transform transition-transform duration-300 ease-in-out z-50 shadow-2xl border-l border-gray-200 ${
               navOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
           >
@@ -262,7 +262,7 @@ const Header = () => {
             </div>
 
             {/* Mobile menu content */}
-            <div className="p-4 h-full overflow-y-auto pb-20 bg-white">
+            <div className="p-4 h-full overflow-y-auto pb-20 bg-white" style={{ height: 'calc(100vh - 4rem)' }}>
               <nav className="space-y-2">
                 {main && main.length > 0 ? main.map((menuItem, i) => (
                   <div key={`mobile-menu-${i}`} className="border border-gray-200 rounded-lg overflow-hidden">

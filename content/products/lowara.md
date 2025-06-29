@@ -7,7 +7,7 @@ products:
     name: "Model MPA"
     category: "Adapter"
     owner: "Lowara"
-    image: "/images/lowara/Model MPA.png"
+    image: "/images/lowara/2-MPA.webp"
     description: |
       Closed radial Impeller and U-turn diffuser design
       • Horizontal shaft design
@@ -28,7 +28,7 @@ products:
     name: "Model MPD"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/Model MPD.png"
+    image: "/images/lowara/MPD.webp"
     description: |
       Closed radial Impeller and U-turn diffuser design
       • Horizontal shaft design
@@ -49,7 +49,7 @@ products:
     name: "Model MPV"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/Model MPV.png"
+    image: "/images/lowara/MPV.webp"
     description: |
       Closed radial Impeller and U-turn diffuser design
       • Vertical shaft design
@@ -98,7 +98,7 @@ products:
     name: "1305 Vortex"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1305 Vortex.png"
+    image: "/images/lowara/lowara-1305-vortex.webp"
     description: |
       • Maximum flow 10 l/s
       • Maximum pressure 11 m
@@ -120,7 +120,7 @@ products:
     name: "1310 Vortex"
     category: "Motors"
     owner: "Lowara"
-    image: "/images/lowara/1310 Vortex.png"
+    image: "/images/lowara/lowara-1310-vortex.webp"
     description: |
       • Maximum flow 16 l/s
       • Maximum pressure 16 m
@@ -132,7 +132,7 @@ products:
     name: "1315 non-clog"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1315 non-clog.png"
+    image: "/images/lowara/lowara-1315-non-clog.webp"
     description: |
       • Maximum flow 54 l/s
       • Maximum pressure 30 m
@@ -144,7 +144,7 @@ products:
     name: "1315 Vortex"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1315 Vortex.png"
+    image: "/images/lowara/lowara-1315-vortex.webp"
     description: |
       • Maximum flow 44 l/s
       • Maximum pressure 15 m
@@ -156,7 +156,7 @@ products:
     name: "1320 non-clog"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1320 non-clog.png"
+    image: "/images/lowara/lowara-1305-non-clog.webp"
     description: |
       • Brand : LiceriaMaximum flow 74 l/s
       • Maximum pressure 41 m
@@ -165,10 +165,10 @@ products:
       • Weight 115 - 134 kg
 
   - id: 26
-    name: "1320 Vortex"
+    name: "lowara-1320-vortex.webp"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1320 Vortex.png"
+    image: "/images/lowara/lowara-1320-vortex.webp"
     description: |
       • Maximum flow 54 l/s
       • Maximum pressure 29 m
@@ -180,7 +180,7 @@ products:
     name: "1325 non-clog"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1325 non-clog.png"
+    image: "/images/lowara/lowara-1325-non-clog.webp"
     description: |
       • Single phase models float switch operation only
       • T denotes three phase, manual operation only
@@ -259,7 +259,7 @@ products:
     name: "e-NSC SERIES"
     category: "Pumps"
     owner: "Lowara"
-    image: "/images/lowara/1325 non-clog.png"
+    image: "/images/lowara/e-NCS.png"
     description: |
       • Close coupled centrifugal pumps, Cast iron construction
       • Stub shaft Rigid-coupled with a bracket, an adaptor and a rigid coupling

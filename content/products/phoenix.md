@@ -21,7 +21,7 @@ products:
       name: "EJ series"
       category: "Pumps"
       owner: "Phoenix"
-      image: "/images/phoenix/EJ series.png"
+      image: "/images/phoenix/EJ series.jpg"
       description: "EJ series Designed in size and performance
 quality to European standards.
 Suitable for pumping wastewater, water
@@ -84,7 +84,7 @@ general water pumping and distribution system."
       name: "SW Series"
       category: "Pumps"
       owner: "Phoenix"
-      image: "/images/phoenix/SW Series.png"
+      image: "/images/phoenix/SW.jpg"
       description: "Single phase with float switch
 This type of Submersible Pump is suitable for use with water or liquids
 that are not clean and do not contain corrosive substances.
